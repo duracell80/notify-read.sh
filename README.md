@@ -11,12 +11,11 @@ For GNOME based desktops, a python utility to read previous notifications via db
 ### Watch Realtime
 `$ watch cat ~/.cache/notifications.log`
 
-### Spotify App or Spotify-QT
-Find your listening history by running
+### Notify-send
+`grep -i "notify-send" ~/.cache/notifications.log`
 
+### Spotify App or Spotify-QT
 `$ grep -i "spotify" ~/.cache/notifications.log`
 
-### WiFi Connections
-Lookup network connects and disconnects
-
+### WiFi Health
 `$ grep -i "networkmanager" ~/.cache/notifications.log`
