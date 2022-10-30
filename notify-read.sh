@@ -30,7 +30,7 @@ do
         n_title="${N[4]}"
         n_description="${N[6]}"
         
-        echo -e "Title:${n_title}\nDescription:${n_description}\nDate:${n_date}\nTime:${n_time}"
+        echo -e "Title: ${n_title}\nDescription: ${n_description}\nDate: ${n_date}\nTime: ${n_time}"
         
     done <<< "$LINE"
     echo "------------------------------------------------------------------------------------------"
