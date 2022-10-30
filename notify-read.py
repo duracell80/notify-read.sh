@@ -24,7 +24,8 @@ def notifications(bus, message):
             
     dat = str(int(time.time()))
     if len(msg) == 4:
-        out = dat + "::" + msg[0].lower() + "::" + msg[1] + "::" + msg[2] + "::" + msg[3]
+        #DEALS WITH ICONS AND IMAGES
+        out = dat + "::" + msg[0].lower() + "::" + msg[2] + "::" + msg[3]
     elif len(msg) == 3:
         out = dat + "::" + msg[0].lower() + "::" + msg[1] + "::" + msg[2]
     elif len(msg) == 2:
