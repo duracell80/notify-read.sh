@@ -8,7 +8,7 @@ For GNOME based desktops, a python utility to read previous notifications via db
 - Install enables a desktop file addition to the startup applications that will run a notifications monitor on startup.
 - Desktop notifications send by applications and notify-send are logged by timestamp to ~/.cache/notifications.txt
 
-### See notifications in realtime
+### Watch Realtime
 `$ watch cat ~/.cache/notifications.log`
 
 ### Spotify App or Spotify-QT
