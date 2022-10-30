@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=~/.local/bin/notify-watch.sh
+X-GNOME-Autostart-enabled=true
+NoDisplay=false
+Hidden=false
+Name[en_US]=Notify Read
+Comment[en_US]=Logs local notifications to ~/.cache/notifications.log
+X-GNOME-Autostart-Delay=0
