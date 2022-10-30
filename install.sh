@@ -10,9 +10,11 @@ DIR_BIN="$DIR_LOCAL/bin"
 mkdir -p $DIR_BIN
 
 cp -f $CWD/notify-read.py $DIR_BIN
+cp -f $CWD/notify-read.sh $DIR_BIN/notify-read
 cp -f $CWD/notify-watch.sh $DIR_BIN
 
 chmod u+x $DIR_BIN/notify-read.py
+chmod u+x $DIR_BIN/notify-read
 chmod u+x $DIR_BIN/notify-watch.sh
 
 touch $DIR_CACHE/notifications.log
