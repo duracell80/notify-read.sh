@@ -17,7 +17,9 @@ chmod u+x $DIR_BIN/notify-read.py
 chmod u+x $DIR_BIN/notify-read
 chmod u+x $DIR_BIN/notify-watch.sh
 
+cp -f $CWD/notifications.json $DIR_CACHE
 touch $DIR_CACHE/notifications.log
+chmod u+rw $DIR_CACHE/notifications.json
 
 for filename in $CWD/*.desktop; do
     [ -e "$filename" ] || continue

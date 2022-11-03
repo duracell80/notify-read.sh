@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import array, os, time
+import array, os, time, json
 
 import gi.repository.GLib
 import dbus
@@ -11,9 +11,8 @@ def init_log():
     file_checks = os.path.expanduser('~') + "/.cache/notifications.log"
     file_exists = os.path.exists(file_checks)
     if not file_exists:
-        os.system("touch " + file_checks)    
-
-
+        os.system("touch " + file_checks)        
+        
 def notifications(bus, message):
     
     c = 0; msg = []
@@ -26,19 +25,48 @@ def notifications(bus, message):
     if len(msg) == 4:
         #DEALS WITH ICONS AND IMAGES
         out = dat + "::" + msg[0].lower() + "::" + msg[2] + "::" + msg[3]
+        data_new = {"timestamp":dat,
+                    "application":msg[0].lower(),
+                    "title": msg[2],
+                    "description":msg[3]}
+        
     elif len(msg) == 3:
         out = dat + "::" + msg[0].lower() + "::" + msg[1] + "::" + msg[2]
+        data_new = {"timestamp":dat,
+                    "application":msg[0].lower(),
+                    "title": msg[1],
+                    "description":msg[2]}
+        
     elif len(msg) == 2:
         out = dat + "::" + msg[0].lower() + "::" + msg[1]
+        data_new = {"timestamp":dat,
+                    "application":msg[0].lower(),
+                    "title": msg[1],
+                    "description":""}
+        
     else:
         out = dat + "::" + msg[0].lower()
+        data_new = {"timestamp":dat,
+                    "application":"generic",
+                    "title": "",
+                    "description":""}
         
     
     print(out)
     os.system("echo " + out + " >> " + os.path.expanduser('~') + "/.cache/notifications.log")
-
+    
+    filename = str(os.path.expanduser('~') + "/.cache/notifications.json")
+    with open(filename,'r+') as file:
+        file_data = json.load(file)
+        file_data["notifications"].append(data_new)
+        file.seek(0)
+        json.dump(file_data, file, indent = 4)
 
 init_log()    
+
+
+
+
 
 DBusGMainLoop(set_as_default=True)
 

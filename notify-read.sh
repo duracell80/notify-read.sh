@@ -20,8 +20,6 @@ done
 
 
 LINES=$(grep -i "${app}" $DIR_CACHE/notifications.log | uniq | tail -n $items)
-echo "------------------------------------------------------------------------------------------"
-
 while read -r LINE
 do
     while IFS='::' read -ra N; do
@@ -33,6 +31,4 @@ do
         echo -e "Title: ${n_title}\nDescription: ${n_description}\nDate: ${n_date}\nTime: ${n_time}"
         
     done <<< "$LINE"
-    echo "------------------------------------------------------------------------------------------"
 done <<< "$LINES"
-
